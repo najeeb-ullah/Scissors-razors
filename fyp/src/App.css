@@ -1,0 +1,464 @@
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+input {
+  margin: 1%;
+}
+
+a {
+  color: black !important;
+}
+
+/* table Colors */
+/* table {
+  table-layout: fixed;
+  width: 100%;
+  word-wrap: break-word;
+} */
+
+tr:nth-child(odd) {
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
+tr:nth-child(even) {
+  background-color: rgb(205, 201, 195, 0.9);
+}
+
+th {
+  background-color: #686d76;
+  color: white;
+}
+thead {
+  font-size: 1.2rem;
+}
+
+tbody {
+  font-weight: 600;
+}
+
+/* Navbar */
+
+.nav-link,
+.navbar-brand {
+  color: white !important;
+}
+.navbar {
+  min-height: 90px;
+  position: sticky;
+}
+
+.brand-logo {
+  font-family: "Grand Hotel", cursive;
+  font-size: 30px !important;
+  margin-left: 30px;
+}
+
+.myCard {
+  margin: 0px 400px;
+  border: 1px solid;
+  background-color: rgba(246, 246, 246, 0.3);
+}
+
+.footer-text {
+  text-align: center;
+  width: 50%;
+  margin-left: 20%;
+}
+.footer-img {
+  margin: 10px;
+}
+
+.footer {
+  padding-top: 3%;
+  background-color: #333131;
+  color: white;
+}
+/* Home Page CSS */
+
+.image-home-div {
+  background-image: url("https://static.boredpanda.com/blog/wp-content/uploads/2016/11/handsome-old-men-3-582d773a4efb9__880.jpg");
+}
+
+.body-home {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+/* HEADINGS */
+
+.big-heading {
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+.section-heading {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+/******* TITLE*****/
+
+.title-div-text {
+  color: #eeeeee;
+}
+
+#title .container-fluid {
+  padding: 3% 15% 7%;
+  text-align: left;
+}
+
+/* SECTIONS */
+
+.color-section {
+  background-image: url("https://tribune-reloaded.s3.amazonaws.com/media/images/2226608-mobilesnew-1590101251/2226608-mobilesnew-1590101251.jpg");
+  background-size: 100% 100%;
+  min-height: 400px;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #f6f6f6;
+}
+
+/* FEATURES */
+
+#features {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.feature-box {
+  padding: 5%;
+}
+
+.container-fluid {
+  padding: 7% 15%;
+}
+
+/** Download Buttons **/
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/** TITLE IMAGE **/
+
+.home-title {
+  background-image: url("https://www.luxreview.com/wp-content/uploads/upload/system/2019/09/04091251.jpg");
+  background-size: 100% 100%;
+  min-height: 600px;
+}
+
+/** FONT AWESOME **/
+.fa-check-circle {
+  width: 40%;
+}
+
+.icon {
+  color: #1f1c1c;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
+}
+
+/* TESTIMONIALS */
+#testimonials {
+  background-color: #3a3f4157;
+}
+
+.testimonial-text {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+/* PRESS */
+#press {
+  background-color: #ef8172;
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+/* PRICING */
+
+#pricing {
+  padding: 100px;
+}
+
+.price-text {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+.card-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Background */
+.page-background-white {
+  background-image: url("https://images.assetsdelivery.com/compings_v2/samsonfm/samsonfm1910/samsonfm191000180.jpg");
+}
+
+/* Appointment */
+
+.appointment-heading {
+  background-image: url("https://dailystar.com.au/wp-content/uploads/2019/08/Barber-.jpg");
+  background-size: 100% 100%;
+  min-height: 600px;
+  color: #fff;
+}
+
+/* CARE CSS */
+
+.page-background {
+  background-image: url("https://fsb.zobj.net/crop.php?r=y5-SP-QOa5Vp1FtTIfkUuXzFV9VHZU0EusDmSxueKFczlwoAi91IPe7KENSW5u1Y-itDUUbFcDsI3ujBCKA2da80lAkKPZrzkHJReZZB9voYXeSCvSQtj01RNLG2GpXJSUDnwA7-bWR-2fPK");
+}
+.haircare-heading {
+  background-image: url("https://www.oribe.com/oribestorefront/medias/newnotable-home.jpg?context=bWFzdGVyfHJvb3R8OTYwNDg5fGltYWdlL2pwZWd8aDZlL2hjNS84ODE4MDE0OTQ1MzEwL25ld25vdGFibGVfaG9tZS5qcGd8NGRkNDg4ZjZjM2IxMzY2NGM0NWNkYWUwN2MwMDI3MzUxNTZiZjg1YTAyNGY3OGJiYmI4YWE5NTZiODJkZGM4Zg");
+  background-size: 100% 100%;
+  min-height: 400px;
+  color: #fff;
+}
+.skincare-heading {
+  background-image: url("https://www.volcanicearth.com/images401/volcanic-man-skincare.png");
+  background-size: 100% 100%;
+  min-height: 400px;
+  color: #fff;
+}
+
+.beardcare-heading {
+  background-image: url("https://cdn.shopify.com/s/files/1/0052/6018/1607/files/TBC_Coverimage_Dark_16x9_v02_1_4d52a9b5-ed56-434f-b87b-ae0d9e72c67d_1200x1200.png?v=1602777601");
+  background-size: 100% 100%;
+  min-height: 400px;
+  color: #fff;
+}
+.appointment-heading {
+  min-height: 400px;
+  color: #fff;
+}
+
+/* .skill-row {
+  width: 50%;
+  text-align: left;
+  margin: 100px auto 100px auto;
+}
+.code-pic {
+  width: 30%;
+  float: left;
+  margin-right: 30px;
+} */
+/* .guitar-pic {
+  width: 30%;
+  float: right;
+  margin-right: 30px;
+} */
+
+/* .body-care {
+  margin: 0px;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: #40514e;
+} */
+
+/* .h1-care {
+  font-size: 3rem;
+}
+.h3-care {
+  font-family: "Montserrat", sans-serif;
+  color: #11999e;
+}
+.p-care {
+  line-height: 2;
+  font-size: 110%;
+} */
+
+/* SIGN UP */
+
+.form-signin {
+  padding-top: 8% !important;
+}
+
+.auth-card {
+  padding: 20px;
+  text-align: left;
+  max-width: 400px;
+  margin: 10px auto;
+}
+.auth-card-signup {
+  padding: 5%;
+  text-align: left;
+  max-width: 45%;
+  margin: 0 auto;
+}
+
+.services-table {
+  margin: 2%;
+}
+
+/* SIDEBAR */
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: #6e6d6d86;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+p {
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  background: #495464;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #495464;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+#sidebar ul li a:hover {
+  color: #495464;
+  background: #fff;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #495464;
+}
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #495464;
+}
+
+/* Products */
+.hair-care {
+  background-image: url("https://images.assetsdelivery.com/compings_v2/uspmen/uspmen2001/uspmen200101128.jpg");
+  background-size: 100% 100%;
+  min-height: 300px;
+  padding: 4% 10% 2%;
+  color: white;
+}
+
+/* Products */
+.beard-care {
+  background-image: url("https://www.dmarge.com/wp-content/uploads/2017/02/beardoil-920x556.jpg");
+  background-size: 100% 100%;
+  min-height: 300px;
+  padding: 4% 10% 2%;
+  color: white;
+}
+
+/* Contact Us div */
+
+.div-image {
+  background-image: url("https://www.lawtechnologytoday.org/wp-content/uploads/2017/12/shutterstock_433289950-e1512753855653.jpg");
+  background-size: 100% 100%;
+  min-height: 500px;
+  color: black;
+}
+
+/* Services */
+.services-div {
+  background-image: url("https://www.dmarge.com/wp-content/uploads/2017/02/beardoil-920x556.jpg");
+  background-size: 100% 100%;
+  min-height: 400px;
+  padding: 7% 10% 2%;
+  color: white;
+}
