@@ -40,7 +40,10 @@ const SkinCare = () => {
       <div className="row">
         {data.map((item) => {
           return (
-            <div className="col-lg-4 col-md-6 col-sm-12">
+            <div
+              className="col-lg-4 col-md-6 col-sm-12"
+              style={{ marginTop: "5%" }}
+            >
               <div
                 className="card"
                 style={{
@@ -51,6 +54,7 @@ const SkinCare = () => {
               >
                 <img
                   className="card-img-top"
+                  style={{ width: "100%", height: "15vw", objectFit: "cover" }}
                   src={item.photo}
                   alt={item.title}
                 />

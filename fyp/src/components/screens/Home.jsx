@@ -25,11 +25,11 @@ const Home = () => {
     button = (
       <Link to="/signin">
         <button type="button" className="btn btn-dark btn-lg download-button">
-          Login
+          Appointment
         </button>
       </Link>
     );
-    text = "Login to Book Your Appointment Now";
+    text = "Book Your Appointment Now";
   } else {
     button = (
       <Link to="/appointment">
@@ -65,9 +65,9 @@ const Home = () => {
           </h1>
           <p
             className="title-div-text"
-            style={{ color: "#000", fontWeight: "bold" }}
+            style={{ color: "#000", fontWeight: "bold", fontSize: "1.5rem" }}
           >
-            {text}
+            <em>{text}</em>
           </p>
           <div>{button}</div>
         </div>
@@ -274,10 +274,18 @@ const Home = () => {
             <i className="fab fa-apple" />
             Download
           </button> */}
-          <button type="button" className="btn btn-dark btn-lg download-button">
-            <i className="fab fa-google-play" />
-            Download
-          </button>
+          <Link
+            to={{ pathname: "https://play.google.com/store/apps" }}
+            target="_blank"
+          >
+            <button
+              type="button"
+              className="btn btn-dark btn-lg download-button"
+            >
+              <i className="fab fa-google-play" />
+              Download
+            </button>
+          </Link>
         </div>
       </section>
     </div>

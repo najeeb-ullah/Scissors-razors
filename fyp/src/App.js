@@ -50,7 +50,7 @@ const Routing = () => {
     if (user) {
       dispatch({ type: "USER", payload: user });
     } else {
-      history.push("/signin");
+      history.push("/");
     }
   }, []);
   return (

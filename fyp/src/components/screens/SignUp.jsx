@@ -109,6 +109,7 @@ const SignUp = () => {
         <DatePicker
           className="form-control border-top-0 border-left-0 border-right-0 date-style"
           placeholderText="Date Of Birth"
+          maxDate={new Date("2012, 01, 01")}
           value={dateOfBirth}
           selected={dateOfBirth}
           onChange={(date) => {

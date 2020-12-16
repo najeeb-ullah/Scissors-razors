@@ -9,11 +9,12 @@ const Appointment = () => {
   const history = useHistory();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [barber, setBarber] = useState("");
   const [dateErr, setDateErr] = useState("");
   const [timeErr, setTimeErr] = useState("");
   const [bookedErr, setBookedErr] = useState("");
 
-  const array1 = [
+  const timeArray = [
     "9:00 AM",
     "10:00 AM",
     "11:00 AM",
@@ -30,9 +31,10 @@ const Appointment = () => {
     "10:00 PM",
   ];
   const array2 = ["9:00 AM", "10:00 AM", "11:00 AM"];
+  const barberArray = ["Nomi (Signature)", "Zeeshan", "Ali", "Munim"];
 
   const printDate = () => {
-    let difference = time.filter((x) => !array1.includes(x));
+    let difference = time.filter((x) => !timeArray.includes(x));
     setTime(difference);
   };
 
@@ -51,6 +53,7 @@ const Appointment = () => {
         },
         body: JSON.stringify({
           date,
+          barber,
           time,
         }),
       })
@@ -112,6 +115,9 @@ const Appointment = () => {
         <DatePicker
           className="form-control border-top-0 border-left-0 border-right-0 date-style"
           placeholderText="Pick a Date"
+          minDate={new Date()}
+          maxDate={new Date("2025, 01, 01")}
+          isClearable
           value={date}
           selected={date}
           onChange={(e) => {
@@ -132,6 +138,25 @@ const Appointment = () => {
             {dateErr}
           </p>
         </div>
+        <h5 style={{ padding: "1%" }}>Pick Barber</h5>
+        <select
+          style={{ width: "15%" }}
+          onClick={(e) => {
+            setBarber(e.target.value);
+            setTimeErr("");
+            setBookedErr("");
+          }}
+        >
+          <option></option>
+          {barberArray.map((item) => {
+            return (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+
         <h5 style={{ padding: "1%" }}>Pick Time</h5>
 
         <select
@@ -143,7 +168,7 @@ const Appointment = () => {
           }}
         >
           <option></option>
-          {array1.map((item) => {
+          {timeArray.map((item) => {
             return (
               <option key={item} value={item}>
                 {item}

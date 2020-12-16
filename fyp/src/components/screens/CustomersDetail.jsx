@@ -18,6 +18,22 @@ const CustomersDetail = () => {
       });
   }, []);
 
+  const deleteCustomer = (customerid) => {
+    fetch(`/deletecustomer/${customerid}`, {
+      method: "delete",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        const newData = users.filter((item) => {
+          return item._id !== result._id;
+        });
+        setUsers(newData);
+      });
+  };
+
   return (
     <div className="page-background-white" style={{ minHeight: "100vh" }}>
       <SideBar />
@@ -41,6 +57,7 @@ const CustomersDetail = () => {
               <th>Date of Birth</th>
               <th>Contact No.</th>
               <th>Email</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -53,6 +70,15 @@ const CustomersDetail = () => {
                   </td>
                   <td>{"0" + item.contact}</td>
                   <td>{item.email}</td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      onClick={() => deleteCustomer(item._id)}
+                    >
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </td>
                 </tr>
               );
             })}

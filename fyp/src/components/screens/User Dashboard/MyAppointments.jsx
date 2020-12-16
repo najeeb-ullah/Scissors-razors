@@ -54,7 +54,7 @@ const MyAppointments = () => {
             <tr style={{ fontFamily: "Lobster" }}>
               <th>Date</th>
               <th>Time</th>
-              <th>Name</th>
+              <th>Stylist</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -64,7 +64,7 @@ const MyAppointments = () => {
                 <tr key={item._id}>
                   <td>{new Date(item.date).toLocaleDateString("en-gb")}</td>
                   <td>{item.time}</td>
-                  <td>{item.postedBy.name}</td>
+                  <td>{item.barber}</td>
                   <td>
                     <button
                       type="button"

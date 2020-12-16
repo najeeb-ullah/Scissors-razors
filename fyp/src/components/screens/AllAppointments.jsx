@@ -32,57 +32,81 @@ const AllAppointments = () => {
       });
   };
 
+  const renderList = () => {
+    if (appointments.length === 0) {
+      return [
+        <h1
+          style={{
+            textAlign: "center",
+            marginTop: "5%",
+            fontFamily: "Lobster",
+            fontWeight: "200",
+            fontSize: "4rem",
+          }}
+        >
+          No Appointments Till Now
+        </h1>,
+      ];
+    } else {
+      return [
+        <div className="container" style={{ marginRight: "5%" }}>
+          <table className="table">
+            <thead>
+              <tr style={{ fontFamily: "Lobster" }}>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Stylist</th>
+                <th>Name</th>
+                <th>Contact No.</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {appointments.map((item) => {
+                return (
+                  <tr key={item._id}>
+                    <td>{new Date(item.date).toLocaleDateString("en-gb")}</td>
+                    <td>{item.time}</td>
+                    <td>{item.barber}</td>
+                    <td>{item.postedBy.name}</td>
+                    <td>0{item.postedBy.contact}</td>
+
+                    <td>
+                      <button
+                        type="button"
+                        className="btn btn-danger"
+                        onClick={() => deleteAppointment(item._id)}
+                      >
+                        <i className="far fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>,
+      ];
+    }
+  };
+
   return (
     <div className="page-background-white" style={{ minHeight: "100vh" }}>
       <SideBar />
+
       <h1
         style={{
           textAlign: "center",
           marginTop: "5%",
-          color: "black",
           fontFamily: "Lobster",
-          fontSize: "3rem",
+          fontWeight: "200",
+          fontSize: "4rem",
         }}
       >
-        All Appointments
+        Today Appointments
       </h1>
       <hr />
-
-      <div className="container" style={{ marginRight: "5%" }}>
-        <table className="table ">
-          <thead>
-            <tr style={{ fontFamily: "Lobster" }}>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Name</th>
-              <th>Contact No.</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {appointments.map((item) => {
-              return (
-                <tr key={item._id}>
-                  <td>{new Date(item.date).toLocaleDateString("en-gb")}</td>
-                  <td>{item.time}</td>
-                  <td>{item.postedBy.name}</td>
-                  <td>0{item.postedBy.contact}</td>
-
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      onClick={() => deleteAppointment(item._id)}
-                    >
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <div>{renderList()}</div>
     </div>
   );
 };

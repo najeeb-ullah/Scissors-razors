@@ -739,6 +739,54 @@ router.get("/allusers", (req, res) => {
     });
 });
 
+router.delete("/deletecustomer/:customerId", requireLogin, (req, res) => {
+  Review.deleteMany({ postedBy: req.params.customerId }).exec((err) => {
+    if (err) {
+      return res.status(422).json({ error: err });
+    }
+    console.log("Review Deleted");
+
+    // post
+    //   .remove()
+    //   .then((result) => {
+    //     res.json(result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  });
+
+  Appointment.deleteMany({ postedBy: req.params.customerId }).exec((err) => {
+    if (err) {
+      return res.status(422).json({ error: err });
+    }
+    console.log("Appointment Deleted");
+
+    // post
+    //   .remove()
+    //   .then((result) => {
+    //     res.json(result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  });
+  User.findOne({ _id: req.params.customerId }).exec((err, post) => {
+    if (err || !post) {
+      return res.status(422).json({ error: err });
+    }
+
+    post
+      .remove()
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+});
+
 //send Email to all the customers who have birthday in this month
 router.post("/birthdayemail", requireLogin, (req, res) => {
   if (!req.body.subject || !req.body.body) {
@@ -792,13 +840,13 @@ router.post("/birthdayemail", requireLogin, (req, res) => {
 });
 
 router.post("/bookappointment", requireLogin, (req, res) => {
-  const { date, time } = req.body;
+  const { date, time, barber } = req.body;
 
-  if (!date || !time) {
+  if (!date || !time || !barber) {
     return res.status(422).json({ error: "kindly add all the fields" });
   }
 
-  Appointment.findOne({ time: time, date: date })
+  Appointment.findOne({ time: time, date: date, barber: barber })
     .then((data) => {
       if (data) {
         return res
@@ -810,6 +858,7 @@ router.post("/bookappointment", requireLogin, (req, res) => {
       const appointment = new Appointment({
         date,
         time,
+        barber,
         postedBy: req.user,
       });
       appointment.save().then((result) => {

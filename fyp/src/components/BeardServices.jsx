@@ -16,7 +16,7 @@ const BeardServices = () => {
 
   const renderList = () => {
     if (data.length === 0) {
-      return [<h1>No Deals yet</h1>];
+      return [<h1>No Beard Services yet... Stay Tuned</h1>];
     } else {
       return [
         data.map((item) => {

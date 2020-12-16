@@ -16,7 +16,7 @@ const Deals = () => {
 
   const renderList = () => {
     if (data.length === 0) {
-      return [<h1>No Deals yet</h1>];
+      return [<h1>No Deals yet... Stay Tuned</h1>];
     } else {
       return [
         data.map((item) => {
