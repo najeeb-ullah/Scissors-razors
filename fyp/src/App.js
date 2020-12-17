@@ -38,6 +38,7 @@ import CustomersBirthday from "./components/screens/CustomersBirthday";
 import MyAppointments from "./components/screens/User Dashboard/MyAppointments";
 import AllAppointments from "./components/screens/AllAppointments";
 import TodayAppointments from "./components/screens/TodayAppointments";
+import FaceShapeFinder from "./components/screens/FaceShapeFinder";
 import { reducer, initialState } from "./reducers/userReducer";
 
 export const UserContext = createContext();
@@ -206,6 +207,10 @@ const Routing = () => {
 
       <Route path="/todayappointments">
         <TodayAppointments />
+      </Route>
+
+      <Route path="/faceshapefinder">
+        <FaceShapeFinder />
       </Route>
 
       <Route path="/contactus">

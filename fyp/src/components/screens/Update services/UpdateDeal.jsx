@@ -19,7 +19,7 @@ const UpdateDeal = () => {
       });
   }, []);
 
-  const deleteDeal = (postid) => {
+  const deleteDeal = async (postid) => {
     fetch(`/deletedeal/${postid}`, {
       method: "delete",
       headers: {
