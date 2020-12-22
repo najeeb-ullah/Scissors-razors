@@ -39,6 +39,7 @@ import MyAppointments from "./components/screens/User Dashboard/MyAppointments";
 import AllAppointments from "./components/screens/AllAppointments";
 import TodayAppointments from "./components/screens/TodayAppointments";
 import FaceShapeFinder from "./components/screens/FaceShapeFinder";
+import EditProfile from "./components/screens/User Dashboard/EditProfile";
 import { reducer, initialState } from "./reducers/userReducer";
 
 export const UserContext = createContext();
@@ -48,6 +49,7 @@ const Routing = () => {
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
     if (user) {
       dispatch({ type: "USER", payload: user });
     } else {
@@ -210,7 +212,12 @@ const Routing = () => {
       </Route>
 
       <Route path="/faceshapefinder">
+        <NavBar />
         <FaceShapeFinder />
+        <Footer />
+      </Route>
+      <Route path="/editprofile">
+        <EditProfile />
       </Route>
 
       <Route path="/contactus">

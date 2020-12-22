@@ -74,4 +74,36 @@ router.post("/signin", (req, res) => {
     });
 });
 
+router.put("/updateprofile", (req, res) => {
+  const { id, name, email, contact, password } = req.body;
+
+  console.log("hi" + bcrypt.hash(password, 12) + " hi");
+  bcrypt
+    .hash(password, 12)
+    .then((hashedPassword) => {
+      hashed = hashedPassword;
+      console.log(hashed);
+
+      User.findByIdAndUpdate(
+        id,
+        {
+          name,
+          email,
+          contact,
+          password: hashedPassword,
+        },
+        { new: true, useFindAndModify: false }
+      )
+        .then((result) => {
+          res.json(result);
+        })
+        .catch((error) => {
+          res.status(422).json({ error });
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 module.exports = router;

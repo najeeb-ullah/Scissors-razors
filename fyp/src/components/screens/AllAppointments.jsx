@@ -103,7 +103,7 @@ const AllAppointments = () => {
           fontSize: "4rem",
         }}
       >
-        Today Appointments
+        All Appointments
       </h1>
       <hr />
       <div>{renderList()}</div>

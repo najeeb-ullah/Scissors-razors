@@ -943,15 +943,14 @@ router.get("/todayappointments", requireLogin, (req, res) => {
     });
 });
 
-// router.get("/mypost", requireLogin, (req, res) => {
-//   HairCare.find({ postedBy: req.user._id })
-//     .populate("postedBy", "_id name")
-//     .then((mypost) => {
-//       res.json({ mypost });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
+router.get("/userdata", requireLogin, (req, res) => {
+  User.find({ _id: req.user._id })
+    .then((post) => {
+      res.json(post);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 module.exports = router;

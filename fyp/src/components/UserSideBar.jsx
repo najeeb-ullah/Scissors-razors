@@ -42,7 +42,7 @@ const UserSideBar = () => {
               <Link to="myreview">My Review</Link>
             </li>
             <li>
-              <Link to="updateprofile">Update Profile</Link>
+              <Link to="editprofile">Edit Profile</Link>
             </li>
             {/* 
             <a
