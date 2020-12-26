@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -9,6 +9,7 @@ const Appointment = () => {
   const history = useHistory();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [employees, setEmployees] = useState([]);
   const [barber, setBarber] = useState("");
   const [dateErr, setDateErr] = useState("");
   const [timeErr, setTimeErr] = useState("");
@@ -30,13 +31,24 @@ const Appointment = () => {
     "9:00 PM",
     "10:00 PM",
   ];
-  const array2 = ["9:00 AM", "10:00 AM", "11:00 AM"];
-  const barberArray = ["Nomi (Signature)", "Zeeshan", "Ali", "Munim"];
+  // const array2 = ["9:00 AM", "10:00 AM", "11:00 AM"];
+  // const barberArray = ["Nomi (Signature)", "Zeeshan", "Ali", "Munim"];
 
-  const printDate = () => {
-    let difference = time.filter((x) => !timeArray.includes(x));
-    setTime(difference);
-  };
+  // const printDate = () => {
+  //   let difference = time.filter((x) => !timeArray.includes(x));
+  //   setTime(difference);
+  // };
+  useEffect(() => {
+    fetch("/allemployee", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setEmployees(result);
+      });
+  }, []);
 
   const bookAppointment = () => {
     if (!date) {
@@ -148,10 +160,10 @@ const Appointment = () => {
           }}
         >
           <option></option>
-          {barberArray.map((item) => {
+          {employees.map((item) => {
             return (
-              <option key={item} value={item}>
-                {item}
+              <option key={item.id} value={item.name}>
+                {item.name}
               </option>
             );
           })}

@@ -42,7 +42,12 @@ const Services = () => {
             type="button"
             style={{ width: "150%" }}
           >
-            <a className=" active" aria-controls="deal" aria-selected="true">
+            <a
+              href="#deal"
+              className=" active"
+              aria-controls="deal"
+              aria-selected="true"
+            >
               Deals
             </a>
           </button>

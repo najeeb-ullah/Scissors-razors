@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 const FaceShapeFinder = () => {
   const [shape, setShape] = useState("");
@@ -266,6 +266,7 @@ const FaceShapeFinder = () => {
     if (!shape) {
       return [
         <div
+          key="1"
           className="card input-field"
           style={{
             margin: "2% auto 0",
@@ -377,6 +378,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );
@@ -429,6 +431,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );
@@ -481,6 +484,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );
@@ -533,6 +537,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );
@@ -578,6 +583,7 @@ const FaceShapeFinder = () => {
             {Square.map((item) => {
               return (
                 <div
+                  key={item.id}
                   className="col-lg-4 col-md-6 col-sm-12"
                   style={{ margin: "0 0 5% 0" }}
                 >
@@ -585,6 +591,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );
@@ -637,6 +644,7 @@ const FaceShapeFinder = () => {
                     key={item.id}
                     style={{ width: "70%", height: "90%" }}
                     src={item.src}
+                    alt={item.title}
                   />
                 </div>
               );

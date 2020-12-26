@@ -48,6 +48,23 @@ const SideBar = () => {
             </ul>
 
             <a
+              href="#employeesdetailsSubmenu"
+              data-toggle="collapse"
+              aria-expanded="false"
+              className="dropdown-toggle"
+            >
+              Employee
+            </a>
+            <ul className="collapse list-unstyled" id="employeesdetailsSubmenu">
+              <li>
+                <Link to="employee">All Employees</Link>
+              </li>
+              <li>
+                <Link to="addemployee">Add Employee</Link>
+              </li>
+            </ul>
+
+            <a
               href="#customersdetailsSubmenu"
               data-toggle="collapse"
               aria-expanded="false"
@@ -92,11 +109,11 @@ const SideBar = () => {
               aria-expanded="false"
               className="dropdown-toggle"
             >
-              update Products
+              Update Products
             </a>
             <ul className="collapse list-unstyled" id="updateProductsSubmenu">
               <li>
-                <Link to="updatehaircare">update Hair Care</Link>
+                <Link to="updatehaircare">Update Hair Care</Link>
               </li>
               <li>
                 <Link to="updatebeardcare">Update Beard Care</Link>
@@ -157,6 +174,9 @@ const SideBar = () => {
           </li>
           <li style={{ color: "white" }}>
             <Link to="sendemail">Send Email</Link>
+          </li>
+          <li>
+            <Link to="editprofileadmin">Edit Profile</Link>
           </li>
         </ul>
         <div className="sidebar-header">

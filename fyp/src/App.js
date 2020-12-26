@@ -40,6 +40,9 @@ import AllAppointments from "./components/screens/AllAppointments";
 import TodayAppointments from "./components/screens/TodayAppointments";
 import FaceShapeFinder from "./components/screens/FaceShapeFinder";
 import EditProfile from "./components/screens/User Dashboard/EditProfile";
+import Employee from "./components/screens/Employee";
+import AddEmployee from "./components/screens/AddEmployee";
+import EditProfileAdmin from "./components/screens/EditProfileAdmin";
 import { reducer, initialState } from "./reducers/userReducer";
 
 export const UserContext = createContext();
@@ -49,184 +52,479 @@ const Routing = () => {
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+    // console.log(user);
     if (user) {
       dispatch({ type: "USER", payload: user });
-    } else {
-      history.push("/");
     }
   }, []);
-  return (
-    <Switch>
-      <Route exact path="/">
-        <NavBar />
-        <Home />
-        <Footer />
-      </Route>
+  if (state) {
+    if (state.email === "scissorsandrazorz@gmail.com") {
+      return (
+        <Switch>
+          <Route exact path="/">
+            <NavBar />
+            <Home />
+            <Footer />
+          </Route>
+          <Route path="/services">
+            <NavBar />
+            <Services />
+            <Footer />
+          </Route>
 
-      <Route path="/signin">
-        <NavBar />
-        <SignIn />
-        <Footer />
-      </Route>
+          <Route path="/products">
+            <NavBar />
+            <Products />
+            <Footer />
+          </Route>
 
-      <Route path="/signup">
-        <NavBar />
-        <SignUp />
-        <Footer />
-      </Route>
+          <Route path="/skincare">
+            <NavBar />
+            <SkinCare />
+            <Footer />
+          </Route>
 
-      <Route path="/services">
-        <NavBar />
-        <Services />
-        <Footer />
-      </Route>
+          <Route path="/beardcare">
+            <NavBar />
+            <BeardCare />
+            <Footer />
+          </Route>
 
-      <Route path="/products">
-        <NavBar />
-        <Products />
-        <Footer />
-      </Route>
+          <Route path="/haircare">
+            <NavBar />
+            <HairCare />
+            <Footer />
+          </Route>
+          <Route path="/contactus">
+            <NavBar />
+            <ContactUs />
+            <Footer />
+          </Route>
+          <Route path="/faceshapefinder">
+            <NavBar />
+            <FaceShapeFinder />
+            <Footer />
+          </Route>
 
-      <Route path="/skincare">
-        <NavBar />
-        <SkinCare />
-        <Footer />
-      </Route>
+          <Route path="/addskincare">
+            <AddSkinCare />
+          </Route>
 
-      <Route path="/beardcare">
-        <NavBar />
-        <BeardCare />
-        <Footer />
-      </Route>
+          <Route path="/addbeardcare">
+            <AddBeardCare />
+          </Route>
 
-      <Route path="/haircare">
-        <NavBar />
-        <HairCare />
-        <Footer />
-      </Route>
+          <Route path="/addhaircare">
+            <AddHairCare />
+          </Route>
 
-      <Route path="/addskincare">
-        <AddSkinCare />
-      </Route>
+          <Route path="/addskinservice">
+            <AddSkinService />
+          </Route>
 
-      <Route path="/addbeardcare">
-        <AddBeardCare />
-      </Route>
+          <Route path="/addBeardservice">
+            <AddBeardService />
+          </Route>
 
-      <Route path="/addhaircare">
-        <AddHairCare />
-      </Route>
+          <Route path="/addhairservice">
+            <AddHairService />
+          </Route>
 
-      <Route path="/addskinservice">
-        <AddSkinService />
-      </Route>
+          <Route path="/adddeal">
+            <AddDeal />
+          </Route>
 
-      <Route path="/addBeardservice">
-        <AddBeardService />
-      </Route>
+          <Route path="/updatehairservice">
+            <UpdateHairService />
+          </Route>
 
-      <Route path="/addhairservice">
-        <AddHairService />
-      </Route>
+          <Route path="/updateskinservice">
+            <UpdateSkinService />
+          </Route>
 
-      <Route path="/adddeal">
-        <AddDeal />
-      </Route>
+          <Route path="/updatebeardservice">
+            <UpdateBeardService />
+          </Route>
 
-      <Route path="/updatehairservice">
-        <UpdateHairService />
-      </Route>
+          <Route path="/updatedeal">
+            <UpdateDeal />
+          </Route>
 
-      <Route path="/updateskinservice">
-        <UpdateSkinService />
-      </Route>
+          <Route path="/updatehaircare">
+            <UpdateHairCare />
+          </Route>
 
-      <Route path="/updatebeardservice">
-        <UpdateBeardService />
-      </Route>
+          <Route path="/updatebeardcare">
+            <UpdateBeardCare />
+          </Route>
 
-      <Route path="/updatedeal">
-        <UpdateDeal />
-      </Route>
+          <Route path="/updateskincare">
+            <UpdateSkinCare />
+          </Route>
 
-      <Route path="/updatehaircare">
-        <UpdateHairCare />
-      </Route>
+          <Route path="/admindashboard">
+            <AdminDashboard />
+          </Route>
+          <Route path="/sendemail">
+            <SendEmail />
+          </Route>
+          <Route path="/customerreviews">
+            <CustomerReviews />
+          </Route>
 
-      <Route path="/updatebeardcare">
-        <UpdateBeardCare />
-      </Route>
+          <Route path="/customersdetail">
+            <CustomersDetail />
+          </Route>
 
-      <Route path="/updateskincare">
-        <UpdateSkinCare />
-      </Route>
+          <Route path="/customersbirthday">
+            <CustomersBirthday />
+          </Route>
 
-      <Route path="/userdashboard">
-        <UserDashboard />
-      </Route>
+          <Route path="/allappointments">
+            <AllAppointments />
+          </Route>
 
-      <Route path="/admindashboard">
-        <AdminDashboard />
-      </Route>
+          <Route path="/todayappointments">
+            <TodayAppointments />
+          </Route>
 
-      <Route path="/appointment">
-        <NavBar />
-        <Appointment />
-        <Footer />
-      </Route>
+          <Route path="/editprofileadmin">
+            <EditProfileAdmin />
+          </Route>
+          <Route path="/employee">
+            <Employee />
+          </Route>
 
-      <Route path="/sendemail">
-        <SendEmail />
-      </Route>
+          <Route path="/addemployee">
+            <AddEmployee />
+          </Route>
+        </Switch>
+      );
+    } else {
+      return (
+        <Switch>
+          <Route exact path="/">
+            <NavBar />
+            <Home />
+            <Footer />
+          </Route>
+          <Route path="/services">
+            <NavBar />
+            <Services />
+            <Footer />
+          </Route>
 
-      <Route path="/addreview">
-        <AddReview />
-      </Route>
+          <Route path="/products">
+            <NavBar />
+            <Products />
+            <Footer />
+          </Route>
 
-      <Route path="/myreview">
-        <MyReview />
-      </Route>
-      <Route path="/customerreviews">
-        <CustomerReviews />
-      </Route>
+          <Route path="/skincare">
+            <NavBar />
+            <SkinCare />
+            <Footer />
+          </Route>
 
-      <Route path="/customersdetail">
-        <CustomersDetail />
-      </Route>
+          <Route path="/beardcare">
+            <NavBar />
+            <BeardCare />
+            <Footer />
+          </Route>
 
-      <Route path="/customersbirthday">
-        <CustomersBirthday />
-      </Route>
+          <Route path="/haircare">
+            <NavBar />
+            <HairCare />
+            <Footer />
+          </Route>
 
-      <Route path="/myappointments">
-        <MyAppointments />
-      </Route>
+          <Route path="/faceshapefinder">
+            <NavBar />
+            <FaceShapeFinder />
+            <Footer />
+          </Route>
 
-      <Route path="/allappointments">
-        <AllAppointments />
-      </Route>
+          <Route path="/contactus">
+            <NavBar />
+            <ContactUs />
+            <Footer />
+          </Route>
 
-      <Route path="/todayappointments">
-        <TodayAppointments />
-      </Route>
+          <Route path="/userdashboard">
+            <UserDashboard />
+          </Route>
 
-      <Route path="/faceshapefinder">
-        <NavBar />
-        <FaceShapeFinder />
-        <Footer />
-      </Route>
-      <Route path="/editprofile">
-        <EditProfile />
-      </Route>
+          <Route path="/appointment">
+            <NavBar />
+            <Appointment />
+            <Footer />
+          </Route>
 
-      <Route path="/contactus">
-        <NavBar />
-        <ContactUs />
-        <Footer />
-      </Route>
-    </Switch>
-  );
+          <Route path="/addreview">
+            <AddReview />
+          </Route>
+
+          <Route path="/myreview">
+            <MyReview />
+          </Route>
+
+          <Route path="/myappointments">
+            <MyAppointments />
+          </Route>
+
+          <Route path="/editprofile">
+            <EditProfile />
+          </Route>
+        </Switch>
+      );
+    }
+  } else {
+    return (
+      <Switch>
+        <Route exact path="/">
+          <NavBar />
+          <Home />
+          <Footer />
+        </Route>
+
+        <Route path="/signin">
+          <NavBar />
+          <SignIn />
+          <Footer />
+        </Route>
+
+        <Route path="/signup">
+          <NavBar />
+          <SignUp />
+          <Footer />
+        </Route>
+
+        <Route path="/services">
+          <NavBar />
+          <Services />
+          <Footer />
+        </Route>
+
+        <Route path="/products">
+          <NavBar />
+          <Products />
+          <Footer />
+        </Route>
+
+        <Route path="/skincare">
+          <NavBar />
+          <SkinCare />
+          <Footer />
+        </Route>
+
+        <Route path="/beardcare">
+          <NavBar />
+          <BeardCare />
+          <Footer />
+        </Route>
+
+        <Route path="/haircare">
+          <NavBar />
+          <HairCare />
+          <Footer />
+        </Route>
+
+        <Route path="/faceshapefinder">
+          <NavBar />
+          <FaceShapeFinder />
+          <Footer />
+        </Route>
+
+        <Route path="/contactus">
+          <NavBar />
+          <ContactUs />
+          <Footer />
+        </Route>
+      </Switch>
+    );
+  }
+  // return (
+  //   <Switch>
+  //     <Route exact path="/">
+  //       <NavBar />
+  //       <Home />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/signin">
+  //       <NavBar />
+  //       <SignIn />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/signup">
+  //       <NavBar />
+  //       <SignUp />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/services">
+  //       <NavBar />
+  //       <Services />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/products">
+  //       <NavBar />
+  //       <Products />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/skincare">
+  //       <NavBar />
+  //       <SkinCare />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/beardcare">
+  //       <NavBar />
+  //       <BeardCare />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/haircare">
+  //       <NavBar />
+  //       <HairCare />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/addskincare">
+  //       <AddSkinCare />
+  //     </Route>
+
+  //     <Route path="/addbeardcare">
+  //       <AddBeardCare />
+  //     </Route>
+
+  //     <Route path="/addhaircare">
+  //       <AddHairCare />
+  //     </Route>
+
+  //     <Route path="/addskinservice">
+  //       <AddSkinService />
+  //     </Route>
+
+  //     <Route path="/addBeardservice">
+  //       <AddBeardService />
+  //     </Route>
+
+  //     <Route path="/addhairservice">
+  //       <AddHairService />
+  //     </Route>
+
+  //     <Route path="/adddeal">
+  //       <AddDeal />
+  //     </Route>
+
+  //     <Route path="/updatehairservice">
+  //       <UpdateHairService />
+  //     </Route>
+
+  //     <Route path="/updateskinservice">
+  //       <UpdateSkinService />
+  //     </Route>
+
+  //     <Route path="/updatebeardservice">
+  //       <UpdateBeardService />
+  //     </Route>
+
+  //     <Route path="/updatedeal">
+  //       <UpdateDeal />
+  //     </Route>
+
+  //     <Route path="/updatehaircare">
+  //       <UpdateHairCare />
+  //     </Route>
+
+  //     <Route path="/updatebeardcare">
+  //       <UpdateBeardCare />
+  //     </Route>
+
+  //     <Route path="/updateskincare">
+  //       <UpdateSkinCare />
+  //     </Route>
+
+  //     <Route path="/userdashboard">
+  //       <UserDashboard />
+  //     </Route>
+
+  //     <Route path="/admindashboard">
+  //       <AdminDashboard />
+  //     </Route>
+
+  //     <Route path="/appointment">
+  //       <NavBar />
+  //       <Appointment />
+  //       <Footer />
+  //     </Route>
+
+  //     <Route path="/sendemail">
+  //       <SendEmail />
+  //     </Route>
+
+  //     <Route path="/addreview">
+  //       <AddReview />
+  //     </Route>
+
+  //     <Route path="/myreview">
+  //       <MyReview />
+  //     </Route>
+  //     <Route path="/customerreviews">
+  //       <CustomerReviews />
+  //     </Route>
+
+  //     <Route path="/customersdetail">
+  //       <CustomersDetail />
+  //     </Route>
+
+  //     <Route path="/customersbirthday">
+  //       <CustomersBirthday />
+  //     </Route>
+
+  //     <Route path="/myappointments">
+  //       <MyAppointments />
+  //     </Route>
+
+  //     <Route path="/allappointments">
+  //       <AllAppointments />
+  //     </Route>
+
+  //     <Route path="/todayappointments">
+  //       <TodayAppointments />
+  //     </Route>
+
+  //     <Route path="/faceshapefinder">
+  //       <NavBar />
+  //       <FaceShapeFinder />
+  //       <Footer />
+  //     </Route>
+  //     <Route path="/editprofile">
+  //       <EditProfile />
+  //     </Route>
+
+  //     <Route path="/editprofileadmin">
+  //       <EditProfileAdmin />
+  //     </Route>
+  //     <Route path="/employee">
+  //       <Employee />
+  //     </Route>
+
+  //     <Route path="/addemployee">
+  //       <AddEmployee />
+  //     </Route>
+
+  //     <Route path="/contactus">
+  //       <NavBar />
+  //       <ContactUs />
+  //       <Footer />
+  //     </Route>
+  //   </Switch>
+  // );
 };
 
 function App() {

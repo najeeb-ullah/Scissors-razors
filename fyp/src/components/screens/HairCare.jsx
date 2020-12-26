@@ -81,6 +81,3 @@ const HairCare = () => {
 };
 
 export default HairCare;
-
-{
-}

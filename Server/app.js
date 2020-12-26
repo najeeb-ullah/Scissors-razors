@@ -23,6 +23,7 @@ require("./models/skinService");
 require("./models/deal");
 require("./models/review");
 require("./models/appointment");
+require("./models/employee");
 
 app.use(express.json());
 app.use(require("./routes/auth"));

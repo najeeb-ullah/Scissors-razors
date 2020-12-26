@@ -21,7 +21,7 @@ const Deals = () => {
       return [
         data.map((item) => {
           return (
-            <div className="row services-table" key={item._id}>
+            <div className="row services-table">
               <div className="col-lg-3">
                 <h2>{item.title}</h2>
               </div>
@@ -32,7 +32,7 @@ const Deals = () => {
                 <p>{item.body}</p>
               </div>
               <div className="col-lg-3">
-                <button type="button" class="btn btn-lg btn-secondary">
+                <button type="button" className="btn btn-lg btn-secondary">
                   {item.price}
                 </button>
               </div>

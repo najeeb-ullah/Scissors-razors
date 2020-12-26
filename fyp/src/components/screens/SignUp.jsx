@@ -92,7 +92,7 @@ const SignUp = () => {
             setName(event.target.value);
             setNameErr("");
           }}
-          autofocus
+          autoFocus
         />
         <div>
           <p
@@ -141,7 +141,7 @@ const SignUp = () => {
             setContact(event.target.value);
             setContactErr("");
           }}
-          autofocus
+          autoFocus
         />
         <div>
           <p
@@ -168,7 +168,7 @@ const SignUp = () => {
             setEmail(event.target.value);
             setEmailErr("");
           }}
-          autofocus
+          autoFocus
         />
         <div>
           <p

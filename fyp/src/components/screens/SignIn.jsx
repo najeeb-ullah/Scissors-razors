@@ -36,7 +36,7 @@ const SignIn = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.error) {
             setInvalidErr(data.error);
           } else {
@@ -81,7 +81,7 @@ const SignIn = () => {
               setEmail(event.target.value);
               setEmailErr("");
             }}
-            autofocus
+            autoFocus
           />
 
           <div>

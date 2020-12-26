@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+// import React, { Component } from "react";
 
 import Iframe from "react-iframe";
 
 const location = () => {
   return (
     <div>
-      <iframe
+      <Iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13614.930894464735!2d74.2838725!3d31.4490243!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ad8d810cb1542a9!2sNomi's%20Salon!5e0!3m2!1sen!2s!4v1606302798390!5m2!1sen!2s"
         width={500}
         height={500}

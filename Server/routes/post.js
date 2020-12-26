@@ -11,6 +11,7 @@ const HairService = mongoose.model("HairService");
 const User = mongoose.model("User");
 const Review = mongoose.model("Review");
 const Appointment = mongoose.model("Appointment");
+const Employee = mongoose.model("Employee");
 const requireLogin = require("../middleware/requireLogin");
 const nodemailer = require("nodemailer");
 const { json } = require("express");
@@ -944,6 +945,9 @@ router.get("/todayappointments", requireLogin, (req, res) => {
 });
 
 router.get("/userdata", requireLogin, (req, res) => {
+  if (!req.user.id) {
+    res.json("user is not logged in");
+  }
   User.find({ _id: req.user._id })
     .then((post) => {
       res.json(post);
@@ -951,6 +955,55 @@ router.get("/userdata", requireLogin, (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+router.get("/allemployee", requireLogin, (req, res) => {
+  Employee.find()
+    .then((post) => {
+      res.json(post);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.post("/addemployee", (req, res) => {
+  const { name, contact, cnic } = req.body;
+
+  if (!name || !contact || !cnic) {
+    return res.status(422).json({ error: "kindly add all the fields" });
+  }
+
+  const employee = new Employee({
+    name,
+    contact,
+    cnic,
+  });
+  employee
+    .save()
+    .then((result) => {
+      res.json({ employee: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.delete("/deleteemployee/:employeeId", requireLogin, (req, res) => {
+  Employee.findOne({ _id: req.params.employeeId }).exec((err, post) => {
+    if (err || !post) {
+      return res.status(422).json({ error: err });
+    }
+
+    post
+      .remove()
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 });
 
 module.exports = router;

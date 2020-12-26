@@ -116,7 +116,7 @@ const Home = () => {
           <div className="carousel-inner">
             <img
               src="https://www.festfloor.eu/wp-content/uploads/2018/02/salon10.jpg"
-              alt="image"
+              alt="carousel"
               style={{ width: "100%", height: "700px" }}
             />
             <div className="carousel-item  active container-fluid">
@@ -131,7 +131,7 @@ const Home = () => {
             </div>
             {reviews.map((item) => {
               return (
-                <div className="carousel-item container-fluid">
+                <div className="carousel-item container-fluid" key={item._id}>
                   <h2 className="testimonial-text" style={{ marginTop: "5%" }}>
                     <em>"{item.body}"</em>
                   </h2>
