@@ -217,7 +217,7 @@ const FaceShapeFinder = () => {
       //   .catch((e) => {
       //     console.log(e); https://cors-anywhere.herokuapp.com/
       //   });
-      fetch("https://faceshapefinder.herokuapp.com/check", {
+      fetch("/findfaceshape", {
         method: "post",
         headers: {
           "content-type": "application/json",

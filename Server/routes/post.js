@@ -15,6 +15,7 @@ const Employee = mongoose.model("Employee");
 const requireLogin = require("../middleware/requireLogin");
 const nodemailer = require("nodemailer");
 const { json } = require("express");
+const axios = require("axios");
 
 router.post("/addhaircare", requireLogin, (req, res) => {
   const { title, body, quantity, price, pic } = req.body;
@@ -967,7 +968,7 @@ router.get("/allemployee", requireLogin, (req, res) => {
     });
 });
 
-router.post("/addemployee", (req, res) => {
+router.post("/addemployee", requireLogin, (req, res) => {
   const { name, contact, cnic } = req.body;
 
   if (!name || !contact || !cnic) {
@@ -1004,6 +1005,19 @@ router.delete("/deleteemployee/:employeeId", requireLogin, (req, res) => {
         console.log(err);
       });
   });
+});
+
+router.post("/findfaceshape", async (req, res) => {
+  await axios
+    .post("https://faceshapefinder.herokuapp.com/check", {
+      url: req.body.url,
+    })
+    .then((result) => {
+      res.send(result.data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 });
 
 module.exports = router;

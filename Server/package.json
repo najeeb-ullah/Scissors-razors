@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.3",
     "nodemailer": "^6.4.16"
