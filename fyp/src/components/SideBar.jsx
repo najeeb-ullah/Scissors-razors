@@ -15,7 +15,8 @@ const SideBar = () => {
               style={{
                 color: "white",
                 fontFamily: "Grand Hotel",
-                fontSize: "3rem",
+                fontSize: "2.7rem",
+                marginBottom: "0",
               }}
             >
               Scissors & Razors
@@ -25,7 +26,7 @@ const SideBar = () => {
         <ul className="list-unstyled components ">
           <h2
             className="sidebar-header"
-            style={{ fontFamily: "Architects Daughter" }}
+            style={{ fontFamily: "Architects Daughter", paddingTop: "0" }}
           >
             Admin
           </h2>
@@ -179,7 +180,7 @@ const SideBar = () => {
             <Link to="editprofileadmin">Edit Profile</Link>
           </li>
         </ul>
-        <div className="sidebar-header">
+        <div className="sidebar-header" style={{ paddingTop: "0" }}>
           <button
             type="button"
             className="btn btn-lg btn-danger"
