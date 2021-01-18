@@ -5,6 +5,7 @@ const FaceShapeFinder = () => {
   const [shape, setShape] = useState("");
   const [url, setUrl] = useState("");
   const [image, setImage] = useState("");
+  const [imageError, setImageError] = useState("");
   const [urlErr, setUrlErr] = useState("");
 
   const Diamond = [
@@ -229,14 +230,16 @@ const FaceShapeFinder = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.error) {
-            alert(data.error);
+            // alert(data.error);
+            setImageError("Invalid Image... Kindly select another one");
           } else {
-            console.log(data);
+            console.log("This is data  ", data);
             setShape(data.result);
           }
         })
         .catch((error) => {
           console.log(error);
+          // alert("invalid image");
         });
     }
   }, [url]);
@@ -305,6 +308,8 @@ const FaceShapeFinder = () => {
               type="file"
               onChange={(e) => {
                 setImage(e.target.files[0]);
+                setImageError("");
+
                 setUrlErr("");
               }}
             />
@@ -331,6 +336,19 @@ const FaceShapeFinder = () => {
           >
             Find Now
           </button>
+          <div>
+            <p
+              style={{
+                textAlign: "left",
+                color: "red",
+                fontSize: "15px",
+                marginLeft: "25%",
+                fontWeight: "bold",
+              }}
+            >
+              {imageError}
+            </p>
+          </div>
         </div>,
       ];
     } else if (shape === "Triangle") {

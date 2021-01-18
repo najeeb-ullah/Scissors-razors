@@ -863,6 +863,7 @@ router.post("/bookappointment", requireLogin, (req, res) => {
         barber,
         postedBy: req.user,
       });
+      console.log(appointment);
       appointment.save().then((result) => {
         res.json({ post: result });
       });
@@ -1014,9 +1015,11 @@ router.post("/findfaceshape", async (req, res) => {
     })
     .then((result) => {
       res.send(result.data);
+      // return;
     })
     .catch((e) => {
-      console.log(e);
+      res.send({ error: "error" });
+      console.log("this is error  ", e);
     });
 });
 
